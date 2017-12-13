@@ -57,9 +57,9 @@ var (
 	// 1<<18 is the minimum size supported by the Google uploader, and there is no maximum.
 	chunkSize         = fs.SizeSuffix(8 * 1024 * 1024)
 	driveUploadCutoff = chunkSize
-	// Description of how to auth for this app
+	// Description of how to auth for this app -- FORKED: appended ".file" to the Scopes statement, 13 Dec 2017
 	driveConfig = &oauth2.Config{
-		Scopes:       []string{"https://www.googleapis.com/auth/drive"},
+		Scopes:       []string{"https://www.googleapis.com/auth/drive.file"},
 		Endpoint:     google.Endpoint,
 		ClientID:     rcloneClientID,
 		ClientSecret: fs.MustReveal(rcloneEncryptedClientSecret),
